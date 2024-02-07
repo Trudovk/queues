@@ -19,6 +19,13 @@ export default async function Profile() {
           </p>
         </div>
       )}
+      {!!user.group && (
+        <p>
+          {" "}
+          Группа: {(await pb.collection("groups").getOne(user.group)).name}{" "}
+        </p>
+      )}
+      <p>Статус {user.field}</p>
       <p className="flex ">
         <a
           href={`https://github.com/${user.username}`}
